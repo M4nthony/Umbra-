@@ -76,19 +76,9 @@ All colors live at the top of the file in the **PALETTE** section. Change these 
 }
 ```
 
-<br>
-
----
-
-<br>
 
 
 
-<br>
-
----
-
-<br>
 
 ## 📄 License
 
