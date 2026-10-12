@@ -1,10 +1,10 @@
 # 🎃 Umbra
 
-A deep-dark **BetterDiscord theme** with pumpkin-orange and neon-purple glow, toxic-green highlights, and subtle spooky details.
+A deep-dark **BetterDiscord theme** with pumpkin-orange and neon-purple glow, toxic-green highlights, and subtle spooky details. *Umbra* means the darkest part of a shadow, and that's exactly the mood: a haunted, premium gaming-client look that works all year.
 
-*Umbra* means the darkest part of a shadow, and that's exactly the mood: a haunted, premium gaming-client look that works all year.
+Made by **Byte**
 
-Made by **ijo** · part of the **Byte** project lineup
+💬 **Support Server:** https://discord.gg/YVGGfjZ2Z
 
 <br>
 
@@ -18,29 +18,25 @@ Made by **ijo** · part of the **Byte** project lineup
 
 - 🟠 **Pumpkin-orange** primary accent with a soft glow
 
-- 🟣 **Neon-purple** secondary accent on hovers and menus
+- 🟣 **Neon-purple** secondary accent on hovers, menus and embeds
 
-- 🟢 **Toxic-green** highlights for rewards and unreads
+- 🟢 **Toxic-green** highlights for quest rewards and unreads
 
-- ⚪ **Round window buttons** (macOS-style dots) — purple minimize, green maximize, orange close
+- ✨ **Glowing hovers** on the server bar, with a pumpkin ring on the server you're hovering
 
-- 🕷️ **Hanging spider** that gently sways from the title bar
-
-- 🦇 **Drifting bat** across the channel header
-
-- 🕸️ **Cobwebs** in the corners of popouts and profiles
-
-- 🎃 **Flickering pumpkin glow** on primary buttons
-
-- 🌫️ **Ground fog** rising at the bottom of the chat
+- 📂 **Active channel** gets an orange accent line and a dark translucent background
 
 - 🌙 **Moonlit graveyard** silhouette behind messages (very faint, stays readable)
 
-- 🎮 **Styled Quests page** — glowing cards that lift on hover, gradient progress bars, green rewards
+- 🕸️ **Cobweb** in the sidebar corner and a small **bat** by the channel header
+
+- 💬 **Message glow** — a purple edge on hover and orange-highlighted mentions
+
+- 🎮 **Styled Quests page** — glowing cards that lift on hover, orange-to-purple progress bars, green rewards
 
 - 📜 **Custom orange-to-purple scrollbar**
 
-- ♿ **Respects Reduce Motion** — all animation stops if you have it on in Windows
+- ♿ **Respects Reduce Motion** — transitions stop if you have it on in Windows
 
 <br>
 
@@ -90,4 +86,18 @@ All colors live at the top of the file in the **PALETTE** section. Change these 
 
 - **Windows & desktop app only** (where BetterDiscord runs). It won't apply on the phone or browser.
 
-- Discord changes its internal
+- Discord changes its internal class names once in a while. If a detail (like the Quests cards or the bat) stops showing after a Discord update, let us know in the support server and it'll be fixed.
+
+- This theme only **restyles** what Discord already shows. It doesn't add or change any features.
+
+- Using client mods like BetterDiscord is against [Discord's Terms of Service](https://discord.com/terms). Use at your own risk.
+
+<br>
+
+---
+
+<br>
+
+## 📄 License
+
+[MIT](LICENSE) · Free to use and modify.
