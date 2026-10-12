@@ -1,0 +1,458 @@
+/**
+ * @name Umbra
+ * @author Byte
+ * @version 1.0.0
+ * @description A deep-dark Discord theme with pumpkin-orange and neon-purple glow, toxic-green highlights, glowing hovers, a faint moonlit graveyard, cobwebs and a drifting bat. Styles the Quests page too.
+ * @invite YVGGfjZ2Z
+ * @website https://discord.gg/YVGGfjZ2Z
+ * @source https://github.com/M4nthony
+ */
+
+/* =========================================================
+   0. PALETTE
+   Change these to recolor the whole theme.
+   ========================================================= */
+:root {
+  --hn-pumpkin: #ff7518;
+  --hn-pumpkin-soft: rgba(255, 117, 24, 0.16);
+  --hn-pumpkin-glow: rgba(255, 117, 24, 0.45);
+  --hn-purple: #8b3dff;
+  --hn-purple-soft: rgba(139, 61, 255, 0.16);
+  --hn-purple-glow: rgba(139, 61, 255, 0.45);
+  --hn-toxic: #9dff57;
+  --hn-toxic-glow: rgba(157, 255, 87, 0.40);
+
+  --hn-void: #0b0b0f;      /* deepest: server bar */
+  --hn-crypt: #121218;     /* sidebars */
+  --hn-tomb: #17171f;      /* chat */
+  --hn-slab: #1e1e28;      /* cards, inputs */
+  --hn-ash: #2a2a36;       /* borders, hover */
+
+  --hn-text: #c9d1e6;      /* soft blue-gray */
+  --hn-text-dim: #8a93ab;
+  --hn-text-bright: #eef1fa;
+
+  --hn-radius: 10px;
+  --hn-ease: 180ms cubic-bezier(.2, .7, .3, 1);
+}
+
+/* =========================================================
+   1. DISCORD THEME VARIABLES
+   Covers both the classic and the newer (2025+) variable names.
+   ========================================================= */
+.theme-dark,
+.theme-darker,
+.theme-midnight,
+.visual-refresh.theme-dark,
+.visual-refresh .theme-dark {
+  /* backgrounds (classic) */
+  --background-primary: var(--hn-tomb);
+  --background-secondary: var(--hn-crypt);
+  --background-secondary-alt: #101016;
+  --background-tertiary: var(--hn-void);
+  --background-floating: #14141b;
+  --background-nested-floating: var(--hn-slab);
+  --background-accent: var(--hn-ash);
+  --background-mobile-primary: var(--hn-tomb);
+  --background-mobile-secondary: var(--hn-crypt);
+  --channeltextarea-background: var(--hn-slab);
+  --modal-background: var(--hn-crypt);
+  --modal-footer-background: #101016;
+
+  /* backgrounds (visual refresh) */
+  --background-base-lowest: var(--hn-void);
+  --background-base-lower: var(--hn-crypt);
+  --background-base-low: var(--hn-crypt);
+  --background-surface-high: var(--hn-slab);
+  --background-surface-higher: var(--hn-slab);
+  --background-surface-highest: var(--hn-ash);
+  --chat-background-default: var(--hn-tomb);
+  --bg-base-primary: var(--hn-tomb);
+  --bg-base-secondary: var(--hn-crypt);
+  --bg-base-tertiary: var(--hn-void);
+
+  /* hover / selected */
+  --background-modifier-hover: rgba(255, 117, 24, 0.06);
+  --background-modifier-active: rgba(255, 117, 24, 0.10);
+  --background-modifier-selected: rgba(139, 61, 255, 0.14);
+  --background-modifier-accent: rgba(255, 255, 255, 0.06);
+  --background-message-hover: rgba(255, 255, 255, 0.025);
+
+  /* text */
+  --text-normal: var(--hn-text);
+  --text-default: var(--hn-text);
+  --text-muted: var(--hn-text-dim);
+  --text-link: var(--hn-pumpkin);
+  --header-primary: var(--hn-text-bright);
+  --header-secondary: var(--hn-text-dim);
+  --channels-default: var(--hn-text-dim);
+  --interactive-normal: var(--hn-text-dim);
+  --interactive-hover: var(--hn-text-bright);
+  --interactive-active: #ffffff;
+  --interactive-muted: #4a4f62;
+
+  /* brand → pumpkin */
+  --brand-500: var(--hn-pumpkin);
+  --brand-560: #e8650d;
+  --brand-600: #d45a08;
+  --brand-experiment: var(--hn-pumpkin);
+  --brand-experiment-560: #e8650d;
+  --brand-experiment-600: #d45a08;
+  --control-brand-foreground: var(--hn-pumpkin);
+  --control-brand-foreground-new: var(--hn-pumpkin);
+  --mention-foreground: var(--hn-pumpkin);
+  --mention-background: var(--hn-pumpkin-soft);
+  --info-help-foreground: var(--hn-purple);
+
+  /* scrollbars (base) */
+  --scrollbar-thin-thumb: var(--hn-pumpkin);
+  --scrollbar-thin-track: transparent;
+  --scrollbar-auto-thumb: #3a2a22;
+  --scrollbar-auto-track: transparent;
+}
+
+/* =========================================================
+   2. TYPOGRAPHY
+   ========================================================= */
+:root {
+  --font-display: "gg sans", "Noto Sans", system-ui, sans-serif;
+}
+[class*="title_"][class*="container_"] h1,
+[class*="name_"] h2 {
+  letter-spacing: 0.01em;
+}
+a[class*="anchor_"]:hover {
+  text-shadow: 0 0 8px var(--hn-pumpkin-glow);
+}
+
+/* =========================================================
+   3. SERVER BAR (left column)
+   ========================================================= */
+nav[aria-label="Servers sidebar"],
+[class*="guilds_"] {
+  background:
+    radial-gradient(circle at 50% 100%, rgba(139, 61, 255, 0.18), transparent 60%),
+    var(--hn-void) !important;
+}
+
+/* crescent moon at the bottom of the server bar */
+nav[aria-label="Servers sidebar"]::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  width: 22px;
+  height: 22px;
+  transform: translateX(-50%);
+  opacity: 0.55;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffd8a8' d='M15.5 2.5A9.5 9.5 0 1 0 21.5 17 7.5 7.5 0 0 1 15.5 2.5z'/%3E%3C/svg%3E") center / contain no-repeat;
+  filter: drop-shadow(0 0 6px rgba(255, 216, 168, 0.6));
+}
+
+/* glowing hover on server icons */
+[data-list-item-id^="guildsnav___"] {
+  transition: box-shadow var(--hn-ease), transform var(--hn-ease) !important;
+}
+[class*="listItem_"]:hover [data-list-item-id^="guildsnav___"] {
+  box-shadow: 0 0 0 2px var(--hn-pumpkin), 0 0 16px var(--hn-pumpkin-glow);
+  transform: translateY(-1px);
+}
+/* selected server pill turns pumpkin */
+[class*="listItem_"] [class*="pill_"] [class*="item_"] {
+  background-color: var(--hn-pumpkin) !important;
+  box-shadow: 0 0 8px var(--hn-pumpkin-glow);
+}
+
+/* =========================================================
+   4. CHANNEL & DM SIDEBAR
+   ========================================================= */
+[class*="sidebar_"] {
+  background-color: var(--hn-crypt) !important;
+}
+
+/* cobweb in the top-right corner of the sidebar header */
+[class*="sidebar_"] [class*="header_"]::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  opacity: 0.22;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' fill='none' stroke='%23c9d1e6' stroke-width='1'%3E%3Cpath d='M48 0L0 48M48 0L16 48M48 0L32 48M48 0L0 16M48 0L0 32'/%3E%3Cpath d='M40 0Q42 6 48 8M30 0Q34 12 48 18M20 0Q26 20 48 28M10 0Q18 28 48 38'/%3E%3C/svg%3E") top right / contain no-repeat;
+}
+
+/* channel and DM rows */
+[class*="containerDefault_"] [class*="link_"],
+[class*="channel_"] [class*="interactive_"] {
+  border-radius: 8px !important;
+  transition: background-color var(--hn-ease), color var(--hn-ease);
+}
+
+/* active item: orange accent line + dark translucent background */
+[class*="modeSelected_"] [class*="link_"],
+[class*="channel_"][class*="selected_"] [class*="interactive_"],
+[class*="interactiveSelected_"] {
+  background: linear-gradient(90deg, rgba(255, 117, 24, 0.14), rgba(18, 18, 24, 0.55)) !important;
+  box-shadow: inset 3px 0 0 var(--hn-pumpkin);
+  color: var(--hn-text-bright) !important;
+}
+
+/* category names */
+[class*="containerDefault_"] [class*="name_"][class*="overflow_"] {
+  letter-spacing: 0.04em;
+}
+
+/* user panel at the bottom */
+section[aria-label="User area"],
+[class*="panels_"] {
+  background-color: #0f0f15 !important;
+  border-top: 1px solid rgba(255, 117, 24, 0.12);
+}
+
+/* =========================================================
+   5. CHAT AREA + BACKGROUND
+   ========================================================= */
+/* moonlit graveyard silhouette, kept very faint behind messages */
+[class*="chatContent_"] {
+  background:
+    linear-gradient(180deg, rgba(23, 23, 31, 0.97) 0%, rgba(23, 23, 31, 0.93) 60%, rgba(23, 23, 31, 0.88) 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 300' preserveAspectRatio='xMidYMax slice'%3E%3Ccircle cx='980' cy='70' r='38' fill='%23ffd8a8' opacity='.55'/%3E%3Cpath fill='%2306060a' d='M0 300V230q60-20 120 0t120-10 140 10 160-15 150 10 150-5 160 10 200-10V300z'/%3E%3Cpath fill='%2306060a' d='M140 230v-50h16v-14h8v14h16v50zM420 232v-40q14-22 28 0v40zM700 228v-56h14v-16h8v16h14v56zM860 232v-34q12-18 24 0v34z'/%3E%3Cpath fill='none' stroke='%2306060a' stroke-width='6' d='M40 235q10-90 0-160M40 120l-30-30M40 150l30-36M1140 232q-6-110 6-170M1146 110l28-26M1142 150l-34-30'/%3E%3C/svg%3E") bottom center / 100% auto no-repeat,
+    var(--hn-tomb) !important;
+}
+
+/* message hover glow */
+[class*="message_"][class*="cozyMessage_"]:hover,
+li[class*="messageListItem_"]:hover > [class*="message_"] {
+  background-color: rgba(255, 255, 255, 0.025) !important;
+  box-shadow: inset 2px 0 0 var(--hn-purple);
+}
+
+/* mentions highlight in pumpkin */
+[class*="mentioned_"] {
+  background-color: var(--hn-pumpkin-soft) !important;
+}
+[class*="mentioned_"]::before {
+  background-color: var(--hn-pumpkin) !important;
+}
+
+/* embeds and link cards: thin border, neon glow on hover */
+article[class*="embedFull_"],
+[class*="embedWrapper_"] {
+  border-radius: var(--hn-radius) !important;
+  border: 1px solid var(--hn-ash) !important;
+  transition: border-color var(--hn-ease), box-shadow var(--hn-ease);
+}
+article[class*="embedFull_"]:hover,
+[class*="embedWrapper_"]:hover {
+  border-color: rgba(139, 61, 255, 0.55) !important;
+  box-shadow: 0 0 14px rgba(139, 61, 255, 0.22);
+}
+
+/* message box */
+[class*="channelTextArea_"] [class*="scrollableContainer_"],
+form [class*="channelTextArea_"] {
+  border-radius: 12px !important;
+  border: 1px solid var(--hn-ash);
+  transition: border-color var(--hn-ease), box-shadow var(--hn-ease);
+}
+form [class*="channelTextArea_"]:focus-within {
+  border-color: rgba(255, 117, 24, 0.6);
+  box-shadow: 0 0 0 1px rgba(255, 117, 24, 0.25), 0 0 16px rgba(255, 117, 24, 0.15);
+}
+
+/* =========================================================
+   6. HEADERS & TOP BAR
+   ========================================================= */
+section[aria-label="Channel header"],
+[class*="title_"][class*="container_"] {
+  background-color: rgba(18, 18, 24, 0.92) !important;
+  border-bottom: 1px solid rgba(255, 117, 24, 0.10);
+}
+
+/* a small bat next to the channel header */
+section[aria-label="Channel header"]::after {
+  content: "";
+  position: absolute;
+  right: 280px;
+  top: 6px;
+  width: 26px;
+  height: 14px;
+  opacity: 0.35;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 32'%3E%3Cpath fill='%23c9d1e6' d='M32 10c2-4 2-6 2-8 2 2 3 3 4 6 6-4 14-6 26-2-6 2-10 6-12 12-4-4-8-4-12 0-2-4-4-6-8-6s-6 2-8 6c-4-4-8-4-12 0C10 12 6 8 0 6c12-4 20-2 26 2 1-3 2-4 4-6 0 2 0 4 2 8z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* =========================================================
+   7. BUTTONS
+   ========================================================= */
+/* primary (brand) buttons → glowing pumpkin */
+button[class*="colorBrand_"][class*="lookFilled_"],
+button[class*="button_"][class*="primary_"]:not([class*="secondary_"]) {
+  background: linear-gradient(135deg, #ff8a3d, var(--hn-pumpkin) 55%, #e35a00) !important;
+  color: #1a0b00 !important;
+  font-weight: 700;
+  border-radius: 8px !important;
+  box-shadow: 0 0 0 1px rgba(255, 117, 24, 0.4), 0 4px 14px rgba(255, 117, 24, 0.25);
+  transition: transform var(--hn-ease), box-shadow var(--hn-ease), filter var(--hn-ease);
+}
+button[class*="colorBrand_"][class*="lookFilled_"]:hover,
+button[class*="button_"][class*="primary_"]:not([class*="secondary_"]):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 1px rgba(255, 117, 24, 0.6), 0 0 22px var(--hn-pumpkin-glow);
+}
+
+/* green / positive buttons (e.g. "Play", "Join") → neon purple */
+button[class*="colorGreen_"][class*="lookFilled_"],
+button[class*="button_"][class*="positive_"] {
+  background: linear-gradient(135deg, #a56bff, var(--hn-purple) 60%, #6b22e0) !important;
+  color: #fff !important;
+  font-weight: 700;
+  border-radius: 8px !important;
+  box-shadow: 0 0 0 1px rgba(139, 61, 255, 0.45), 0 4px 14px rgba(139, 61, 255, 0.25);
+  transition: transform var(--hn-ease), box-shadow var(--hn-ease);
+}
+button[class*="colorGreen_"][class*="lookFilled_"]:hover,
+button[class*="button_"][class*="positive_"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 1px rgba(139, 61, 255, 0.7), 0 0 22px var(--hn-purple-glow);
+}
+
+/* secondary buttons: dark with a thin border */
+button[class*="colorPrimary_"][class*="lookFilled_"],
+button[class*="button_"][class*="secondary_"] {
+  background-color: var(--hn-slab) !important;
+  border: 1px solid var(--hn-ash) !important;
+  border-radius: 8px !important;
+}
+button[class*="colorPrimary_"][class*="lookFilled_"]:hover,
+button[class*="button_"][class*="secondary_"]:hover {
+  border-color: rgba(139, 61, 255, 0.55) !important;
+}
+
+/* toggles / switches */
+[class*="checked_"][class*="container_"],
+div[class*="control_"] [class*="checked_"] {
+  background-color: var(--hn-pumpkin) !important;
+}
+
+/* =========================================================
+   8. POPOUTS, MENUS, MODALS & PROFILES
+   ========================================================= */
+[class*="menu_"][role="menu"],
+[class*="popout_"],
+[class*="userPopout"],
+[class*="root_"][role="dialog"] {
+  border: 1px solid rgba(139, 61, 255, 0.28) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55), 0 0 18px rgba(139, 61, 255, 0.12) !important;
+}
+[class*="menu_"] [class*="item_"][class*="focused_"],
+[class*="menu_"] [class*="item_"]:hover {
+  background: linear-gradient(90deg, var(--hn-purple), #6b22e0) !important;
+  color: #fff !important;
+}
+[class*="menu_"] [class*="colorDanger_"][class*="focused_"] {
+  background: #d93838 !important;
+}
+
+/* =========================================================
+   9. QUESTS PAGE
+   Styles Discord's existing quest cards. It does not add
+   or change any quest features.
+   ========================================================= */
+[class*="questTile"],
+[class*="questCard"],
+[class*="quest_"][class*="container_"] {
+  background-color: var(--hn-crypt) !important;
+  border: 1px solid var(--hn-ash) !important;
+  border-radius: 14px !important;
+  overflow: hidden;
+  transition: transform var(--hn-ease), border-color var(--hn-ease), box-shadow var(--hn-ease) !important;
+}
+[class*="questTile"]:hover,
+[class*="questCard"]:hover,
+[class*="quest_"][class*="container_"]:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 117, 24, 0.55) !important;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5), 0 0 22px rgba(255, 117, 24, 0.18);
+}
+/* quest banner art: darken the edges slightly so text on it stays readable */
+[class*="questTile"] img,
+[class*="questCard"] img {
+  filter: saturate(1.05) contrast(1.05);
+}
+/* quest progress bars */
+[class*="questTile"] [class*="progress"] [class*="bar"],
+[class*="questCard"] [class*="progress"] [class*="bar"] {
+  background: linear-gradient(90deg, var(--hn-pumpkin), var(--hn-purple)) !important;
+  box-shadow: 0 0 10px var(--hn-pumpkin-glow);
+}
+/* reward and "ends on" text */
+[class*="questTile"] [class*="reward"],
+[class*="questCard"] [class*="reward"] {
+  color: var(--hn-toxic) !important;
+}
+
+/* =========================================================
+   10. BADGES, UNREADS & STATUS
+   ========================================================= */
+[class*="numberBadge_"],
+[class*="lowerBadge_"] [class*="numberBadge_"] {
+  background-color: var(--hn-pumpkin) !important;
+  color: #1a0b00 !important;
+  box-shadow: 0 0 8px var(--hn-pumpkin-glow);
+}
+[class*="unread_"][class*="pill_"],
+[class*="unreadImportant_"] {
+  background-color: var(--hn-toxic) !important;
+}
+/* "NEW" message divider */
+[class*="divider_"][class*="isUnread_"] {
+  border-color: var(--hn-pumpkin) !important;
+}
+[class*="divider_"][class*="isUnread_"] [class*="unreadPill_"],
+[class*="isUnread_"] span[class*="content_"] {
+  background-color: var(--hn-pumpkin) !important;
+  color: #1a0b00 !important;
+}
+
+/* =========================================================
+   11. SCROLLBARS
+   ========================================================= */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--hn-pumpkin), var(--hn-purple));
+  border: 3px solid transparent;
+  border-radius: 10px;
+  background-clip: padding-box;
+}
+[class*="scroller_"][class*="thin_"]::-webkit-scrollbar-thumb,
+[class*="scroller_"][class*="auto_"]::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--hn-pumpkin), var(--hn-purple)) !important;
+  border: 3px solid transparent !important;
+  background-clip: padding-box !important;
+  min-height: 40px;
+}
+
+/* =========================================================
+   12. COMFORT
+   ========================================================= */
+::selection {
+  background: rgba(255, 117, 24, 0.35);
+  color: #fff;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
