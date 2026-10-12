@@ -82,15 +82,7 @@ All colors live at the top of the file in the **PALETTE** section. Change these 
 
 <br>
 
-## ⚠️ Notes
 
-- **Windows & desktop app only** (where BetterDiscord runs). It won't apply on the phone or browser.
-
-- Discord changes its internal class names once in a while. If a detail (like the Quests cards or the bat) stops showing after a Discord update, let us know in the support server and it'll be fixed.
-
-- This theme only **restyles** what Discord already shows. It doesn't add or change any features.
-
-- Using client mods like BetterDiscord is against [Discord's Terms of Service](https://discord.com/terms). Use at your own risk.
 
 <br>
 
