@@ -12,31 +12,17 @@ Made by **Byte**
 
 <br>
 
-## ✨ Features
+## What you get
 
-- 🖤 **Deep-dark UI** — charcoal and near-black backgrounds across the whole app
-
-- 🟠 **Pumpkin-orange** primary accent with a soft glow
-
-- 🟣 **Neon-purple** secondary accent on hovers, menus and embeds
-
-- 🟢 **Toxic-green** highlights for quest rewards and unreads
-
-- ✨ **Glowing hovers** on the server bar, with a pumpkin ring on the server you're hovering
-
-- 📂 **Active channel** gets an orange accent line and a dark translucent background
-
-- 🌙 **Moonlit graveyard** silhouette behind messages (very faint, stays readable)
-
-- 🕸️ **Cobweb** in the sidebar corner and a small **bat** by the channel header
-
-- 💬 **Message glow** — a purple edge on hover and orange-highlighted mentions
-
-- 🎮 **Styled Quests page** — glowing cards that lift on hover, orange-to-purple progress bars, green rewards
-
-- 📜 **Custom orange-to-purple scrollbar**
-
-- ♿ **Respects Reduce Motion** — transitions stop if you have it on in Windows
+- Clean, deep-dark look across all of Discord
+- Warm orange glow with purple accents
+- Green pops for rewards and unreads
+- Glowing server icons and highlighted channels
+- A faint moon-and-graveyard scene behind your chats
+- A cobweb in the corner and a tiny bat up top
+- Styled Quests page with glowing cards
+- Matching orange-to-purple scrollbar
+- Calms down if you've got Reduce Motion on
 
 <br>
 
